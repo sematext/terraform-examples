@@ -5,7 +5,7 @@ Note this is a demonstration. In practice you would transfer the deployment scri
 
 ## Usage
 
-Create a Monitoring App of type "Infra" and copy the SPM App Token - or execute the commands displayed in the Sematext UI. You will be prompted for this when running the scripts.
+Create a Monitoring App of type "Infra" and copy the Monitoring App Token - or execute the commands displayed in the Sematext UI. You will be prompted for this when running the scripts.
 
 To run this example you need to execute:
 
