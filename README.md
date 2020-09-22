@@ -1,5 +1,5 @@
 <h1 align="center">
-  <a name="logo" href="https://www.sematext.com"><img src="./assets/just-octi-blue.png" alt="Sematext Home" width="200"></a>
+  <a name="logo" href="https://www.sematext.com"><img src="https://sematext.com/wp-content/uploads/2020/09/just-octi-blue.png" alt="Sematext Home" width="200"></a>
   <br>
   Sematext Cloud - Terraform Examples
 </h1>
@@ -34,123 +34,122 @@ Examples of using Terraform scripting to automate <a href="https://sematext.com/
 </div>
 <hr>
 <h4 align="center">
-Sematext are now a Terraform Verified Partner! You can access the Sematext Cloud Provider on the
+Sematext is now a Terraform Verified Partner! You can access the Sematext Cloud Provider in the
 <a href="https://registry.terraform.io/providers/sematext/sematext/latest">Terraform Registry</a> 
 </h4>
 <hr>
 
 #### <a name="resources"></a>Sematext Monitoring App Resources supported by this Provider:
 
-
 <table align="center" border="0" width="100%">
 <tbody>
 <tr>
 <td align="center">
 
-[![Apache Solr](./assets/solr.png)](https://sematext.com/integrations/#solr)
+[![Apache Solr](./assets/solr.png)](https://registry.terraform.io/providers/sematext/sematext/latest/docs/resources/sematext_monitor_solr)
 
 </td>
 <td align="center">
 
-[![Solr Cloud](./assets/solrcloud.png)](https://sematext.com/integrations/#solrcloud)
+[![Solr Cloud](./assets/solrcloud.png)](https://registry.terraform.io/providers/sematext/sematext/latest/docs/resources/sematext_monitor_solrcloud)
 </td>
 <td align="center">
 
-[![Elasticsearch](./assets/elasticsearch.png)](https://sematext.com/integrations/#elasticsearch)
+[![Elasticsearch](./assets/elasticsearch.png)](https://registry.terraform.io/providers/sematext/sematext/latest/docs/resources/sematext_monitor_elasticsearch)
 </td>
 <td align="center">
 
-[![Node.js](./assets/nodejs.png)](https://sematext.com/integrations/#nodejs)
-</td>
-</tr>
-<tr>
-<td align="center">
-
-[![Apache Spark](./assets/spark.png)](https://sematext.com/integrations/#spark)
-</td>
-<td align="center">
-
-[![Apache Kafka](./assets/kafka.png)](https://sematext.com/integrations/#kafka)
-</td>
-<td align="center">
-
-[![Docker](./assets/docker.png)](https://sematext.com/integrations/#docker)
-</td>
-<td align="center">
-
-[![Apache Cassandra](./assets/cassandra.png)](https://sematext.com/integrations/#cassandra)
+[![Node.js](./assets/nodejs.png)](https://registry.terraform.io/providers/sematext/sematext/latest/docs/resources/sematext_monitor_nodejs)
 </td>
 </tr>
 <tr>
 <td align="center">
 
-[![Apache HBase](./assets/hbase.png)](https://sematext.com/integrations/#hbase)
+[![Apache Spark](./assets/spark.png)](https://registry.terraform.io/providers/sematext/sematext/latest/docs/resources/sematext_monitor_spark)
 </td>
 <td align="center">
 
-[![Apache Hadoop](./assets/hadoop.png)](https://sematext.com/integrations/#hadoop)
+[![Apache Kafka](./assets/kafka.png)](https://registry.terraform.io/providers/sematext/sematext/latest/docs/resources/sematext_monitor_kafka)
 </td>
 <td align="center">
 
-[![MongoDB](./assets/mongodb.png)](https://sematext.com/integrations/#mongodb)
+[![Docker](./assets/docker.png)](https://registry.terraform.io/providers/sematext/sematext/latest/docs/resources/sematext_monitor_docker)
+</td>
+<td align="center">
+
+[![Apache Cassandra](./assets/cassandra.png)](https://registry.terraform.io/providers/sematext/sematext/latest/docs/resources/sematext_monitor_cassandra)
+</td>
+</tr>
+<tr>
+<td align="center">
+
+[![Apache HBase](./assets/hbase.png)](https://registry.terraform.io/providers/sematext/sematext/latest/docs/resources/sematext_monitor_hbase)
+</td>
+<td align="center">
+
+[![Apache Hadoop](./assets/hadoop.png)](https://registry.terraform.io/providers/sematext/sematext/latest/docs/resources/sematext_monitor_hadoopmrv1)
+</td>
+<td align="center">
+
+[![MongoDB](./assets/mongodb.png)](https://registry.terraform.io/providers/sematext/sematext/latest/docs/resources/sematext_monitor_mongodb)
 </td>  
 <td align="center">
 
-[![Apache Storm](./assets/storm.png)](https://sematext.com/integrations/#storm)
+[![Apache Storm](./assets/storm.png)](https://registry.terraform.io/providers/sematext/sematext/latest/docs/resources/sematext_monitor_storm)
 </td>
 </tr>
 <tr>
 <td align="center">
 
-[![AWS EC2](./assets/ec2.png)](https://sematext.com/integrations/#ec2)
+[![AWS EC2](./assets/ec2.png)](https://registry.terraform.io/providers/sematext/sematext/latest/docs/resources/sematext_monitor_awsec2)
 </td>
 <td align="center">
 
-[![AWS EBS](./assets/ebs.png)](https://sematext.com/integrations/#ebs)
+[![AWS EBS](./assets/ebs.png)](https://registry.terraform.io/providers/sematext/sematext/latest/docs/resources/sematext_monitor_awsebs)
 </td>
 <td align="center">
 
-[![AWS ELB](./assets/elb.png)](https://sematext.com/integrations/#elb)
+[![AWS ELB](./assets/elb.png)](https://registry.terraform.io/providers/sematext/sematext/latest/docs/resources/sematext_monitor_awselb)
 </td>
 <td align="center">
 
-[![Apache Tomcat](./assets/tomcat.png)](https://sematext.com/integrations/#tomcat)
-</td>
-</tr>
-<tr>
-<td align="center">
-
-[![Apache HTTP Server](./assets/apache.png)](https://sematext.com/integrations/#apache)
-</td>
-<td align="center">
-
-[![Nginx &amp; Nginx Plus](./assets/nginx.png)](https://sematext.com/integrations/#nginx)
-</td>
-<td align="center">
-
-[![Redis](./assets/redis.png)](https://sematext.com/integrations/#redis)
-</td>
-<td align="center">
-
-[![MySQL](./assets/mysql.png)](https://sematext.com/integrations/#mysql)
+[![Apache Tomcat](./assets/tomcat.png)](https://registry.terraform.io/providers/sematext/sematext/latest/docs/resources/sematext_monitor_tomcat)
 </td>
 </tr>
 <tr>
 <td align="center">
 
-[![Apache Zookeeper](./assets/zookeeper.png)](https://sematext.com/integrations/#zookeeper)
+[![Apache HTTP Server](./assets/apache.png)](https://registry.terraform.io/providers/sematext/sematext/latest/docs/resources/sematext_monitor_apache)
 </td>
 <td align="center">
 
-[![HAProxy](./assets/haproxy.png)](https://sematext.com/integrations/#haproxy)
+[![Nginx &amp; Nginx Plus](./assets/nginx.png)](https://registry.terraform.io/providers/sematext/sematext/latest/docs/resources/sematext_monitor_nginxplus)
 </td>
 <td align="center">
 
-[![Java](./assets/java.png)](https://sematext.com/integrations/#java)
+[![Redis](./assets/redis.png)](https://registry.terraform.io/providers/sematext/sematext/latest/docs/resources/sematext_monitor_redis)
 </td>
 <td align="center">
 
-[![Akka](./assets/akka.png)](https://sematext.com/integrations/#akka)
+[![MySQL](./assets/mysql.png)](https://registry.terraform.io/providers/sematext/sematext/latest/docs/resources/sematext_monitor_mysql)
+</td>
+</tr>
+<tr>
+<td align="center">
+
+[![Apache Zookeeper](./assets/zookeeper.png)](https://registry.terraform.io/providers/sematext/sematext/latest/docs/resources/sematext_monitor_zookeeper)
+</td>
+<td align="center">
+
+[![HAProxy](./assets/haproxy.png)](https://registry.terraform.io/providers/sematext/sematext/latest/docs/resources/sematext_monitor_haproxy)
+</td>
+<td align="center">
+
+[![Java](./assets/java.png)](https://registry.terraform.io/providers/sematext/sematext/latest/docs/resources/sematext_monitor_jvm)
+</td>
+<td align="center">
+
+[![Akka](./assets/akka.png)](https://registry.terraform.io/providers/sematext/sematext/latest/docs/resources/sematext_monitor_akka)
 </td>
 </tr>
 </tbody>
@@ -170,10 +169,10 @@ Sematext are now a Terraform Verified Partner! You can access the Sematext Cloud
 
 #### <a name="requirements"></a>Requirements:
 
-* [Terraform](https://www.terraform.io/downloads.html) v0.13+
-* [Sematext Cloud Account](https://apps.sematext.com/ui/account/api)
-* Sematext Cloud API Access Token
-* Your choice of [Sematext Cloud Plan ID](https://github.com/sematext/terraform-provider-sematext/blob/master/docs/guides/plans.md)
+* [Terraform v0.13+](https://www.terraform.io/downloads.html) 
+* [Sematext Cloud Account](https://apps.sematext.com/ui/account)
+* [Sematext Cloud API Access Token](https://apps.sematext.com/ui/account/api)
+* [Sematext Cloud Plan ID](https://github.com/sematext/terraform-provider-sematext/blob/master/docs/guides/plans.md)
 
 <hr>
 
@@ -231,14 +230,14 @@ $ terraform plan
 $ terraform apply
 ```
 
-*Note this particular example is an over simplification as a starting point, refer to more realistic examples listed in ./examples directory.*
+*Note this particular example is a simple demo as a starting point, refer to more realistic examples listed in the [examples directory](./examples).*
 
 <hr>
 
 
 #### <a name="otherresources"></a>Further Information:
 
-* Sematext Manual Intergrations Guide :https://sematext.com/docs/guide/integrations-guide/
+* Sematext Manual Integrations Guide :https://sematext.com/docs/guide/integrations-guide/
 * Terraform Website: https://www.terraform.io
 * Mailing list: [Google Groups](http://groups.google.com/group/terraform-tool)
 * [![Gitter chat](https://badges.gitter.im/hashicorp-terraform/Lobby.svg)](https://gitter.im/hashicorp-terraform/Lobby)
