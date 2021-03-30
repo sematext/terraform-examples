@@ -1,0 +1,177 @@
+
+
+Replace vs reprovision?
+
+SC-APP parent, EC2 Child
+
+EC2 Parent (depends_on) SC-APP
+
+
+
+Creation:
+
+    Provision EC2 using user-data, EC2_resource implicitly depends on SC-APP_resource though use of token output and/or depends_on clause in EC2_resource
+
+Update:
+
+    Reprovision using remote-exec .... stateless -> re-deploy, stateful -> re-provision
+
+Read
+
+    Test App-ID, test against state
+    Same, do nothing
+    Different, output changes ... ?
+
+
+Delete
+
+    ???
+
+
+Use Case 1) Change of App-ID taints downstream
+
+    taint anything that is using
+
+Use Case 2) Change of App-ID reprovisions downstream
+
+
+
+If configuration management then must pass output to config server so
+
+
+
+*** Need to add an import function!!!
+
+
+resource "aws_instance" "testInstance" {
+  ami           = "${var.instance_ami}"
+  instance_type = "${var.instance_type}"
+  subnet_id = "${aws_subnet.subnet_public.id}"
+  vpc_security_group_ids = ["${aws_security_group.sg_22_80.id}"]
+  key_name = "${aws_key_pair.ec2key.key_name}"
+  tags {
+        "Environment" = "${var.environment_tag}"
+    }
+  provisioner "remote-exec" {
+    inline = [
+      "sudo amazon-linux-extras enable nginx1.12",
+      "sudo yum -y install nginx",
+      "sudo systemctl start nginx",
+    ]
+  }
+  connection {
+    type     = "ssh"
+    user     = "ec2-user"
+    password = ""
+    private_key = "${file("~/.ssh/id_rsa")}"
+  }
+}
+
+
+resource "aws_security_group" "sg_22_80" {
+  name = "sg_22"
+  vpc_id = "${aws_vpc.vpc.id}"
+  ingress {
+      from_port   = 22
+      to_port     = 22
+      protocol    = "tcp"
+      cidr_blocks = ["0.0.0.0/0"]
+  }
+  ingress {
+      from_port   = 80
+      to_port     = 80
+      protocol    = "tcp"
+      cidr_blocks = ["0.0.0.0/0"]
+  }
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  tags {
+    "Environment" = "${var.environment_tag}"
+  }
+}
+
+
+resource "aws_eip" "demo" {
+  instance = "${aws_instance.TS-demo.id}"
+  depends_on = ["aws_instance.TS-demo"]
+  vpc      = true
+}
+
+resource "aws_instance" "TS-demo" {
+  ami                    = "${lookup(var.aws_opsman_ami,var.region)}"
+  instance_type          = "m3.medium"
+  key_name               = "${var.key_name}"
+  subnet_id              = "${aws_subnet.public.id}"
+  vpc_security_group_ids = ["${aws_security_group.all_pass.id}"]
+
+  tags {
+    Name = "demo"
+  }
+
+  provisioner "local-exec" {
+    command = "echo ${aws_instance.TS-demo.private_ip} > private_ips"
+  }
+
+}
+resource "null_resource" "preparation" {
+    triggers {
+        instance = "${aws_instance.TS-demo.id}"
+    }
+  connection {
+    host        ="${aws_eip.demo.public_ip}"   # don't forget  this option.
+    user        = "ubuntu"
+    timeout     = "30s"
+    private_key = "${file("./skyfree.pem")}"
+    agent = false
+  }
+
+  provisioner "file" {
+    source      = "./tfvars"
+    destination = "/tmp/"
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "sudo apt-get -y update",
+    ]
+  }
+
+}
+
+
+inline = [
+    "puppet apply",
+    "consul join ${aws_instance.web.private_ip}",
+]
+
+resource "aws_instance" "web" {
+  # ...
+
+  provisioner "local-exec" {
+    command    = "echo The server's IP address is ${self.private_ip}"
+    on_failure = continue
+  }
+}
+
+----------------------------------------------------------------
+resource "null_resource" "deployment" {
+  provisioner "local-exec" {
+    command = "echo ${PATH} > output.log"
+  }
+  triggers = {
+    always_run = timestamp()
+  }
+}
+
+------------------------------------------------------------------
+
+https://github.com/hashicorp/terraform/issues/3193
+
+
+https://medium.com/@mitesh_shamra/state-management-with-terraform-9f13497e54cf
+
+https://www.terraform.io/docs/provisioners/file.html

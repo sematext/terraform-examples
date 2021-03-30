@@ -1,11 +1,10 @@
-# Sematext Logagent : Terraform deployment example.
+# Sematext Agent : Terraform deployment example.
 
-Configuration in this directory deploys a single EC2 instance containing a Sematext Logagent Log Shipper.
-Note this is a demonstration. In practice you would transfer the deployment script in the user_data field in ec2.tf to your own Terraform situation rather than build out from this example.
+Configuration in this example deploys a single EC2 instance containing a Sematext Agent.
+Note use of a null_resource to reprovision the agents configuration if the apptoken is changed in the Cloud UI.
+
 
 ## Usage
-
-Create a Monitoring App of type "Infra" and copy the Monitoring App Token - or execute the commands displayed in the Sematext UI. You will be prompted for this when running the scripts.
 
 To run this example you need to execute:
 

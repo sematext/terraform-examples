@@ -14,7 +14,7 @@ terraform {
   required_providers {
     sematext = {
       source = "sematext/sematext"
-      version = ">= 0.1.4"
+      version = ">= 0.1.8"
     }
   }
 }
@@ -26,4 +26,8 @@ provider "sematext" {
 resource "sematext_monitor_logsene" "logship_sink" {
     name = "Example"
     billing_plan_id = 10100 
+}
+
+output "instance_ip_addr" {
+  value = aws_instance.server.private_ip
 }
