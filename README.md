@@ -134,6 +134,7 @@ Sematext is now a Terraform Verified Partner! You can access the Sematext Cloud 
 [![MySQL](./assets/mysql.png)](https://registry.terraform.io/providers/sematext/sematext/latest/docs/resources/sematext_monitor_mysql)
 </td>
 </tr>
+
 <tr>
 <td align="center">
 
@@ -152,6 +153,28 @@ Sematext is now a Terraform Verified Partner! You can access the Sematext Cloud 
 [![Akka](./assets/akka.png)](https://registry.terraform.io/providers/sematext/sematext/latest/docs/resources/sematext_monitor_akka)
 </td>
 </tr>
+
+
+<tr>
+<td align="center">
+
+[![PostgreSQL](./assets/postgresql.png)](https://registry.terraform.io/providers/sematext/sematext/latest/docs/resources/sematext_monitor_postgresql)
+</td>
+<td align="center">
+
+[![Mobile Logs](./assets/mobile-logs.png)](https://registry.terraform.io/providers/sematext/sematext/latest/docs/resources/sematext_monitor_mobilelogs)
+</td>
+<td align="center">
+
+[![RabbitMQ](./assets/rabbitmq.png)](https://registry.terraform.io/providers/sematext/sematext/latest/docs/resources/sematext_monitor_rabbitmq)
+</td>
+<td align="center">
+
+[![Clickhouse](./assets/clickhouse.png)](https://registry.terraform.io/providers/sematext/sematext/latest/docs/resources/sematext_monitor_clickhouse)
+</td>
+</tr>
+
+
 </tbody>
 </table>
 <hr>
