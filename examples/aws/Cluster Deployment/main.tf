@@ -12,12 +12,12 @@ terraform {
 
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 2.70"
+      version = "~> 3.34"
     }
 
     sematext = {
       source  = "sematext/sematext"
-      version = ">= 1.3.0"
+      version = ">= 1.4.0"
     }
 
   }

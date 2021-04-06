@@ -12,7 +12,7 @@ data "aws_ami" "amazon-linux-2" {
   }
 }
 
-# TODO setup AWS key
+# TODO setup AWS key for ssh
 
 resource "aws_instance" "microservice" {
 
@@ -25,7 +25,7 @@ resource "aws_instance" "microservice" {
 
   ami                         = data.aws_ami.amazon-linux-2.id
   subnet_id                   = aws_subnet.subnet.id
-  vpc_security_group_ids      = aws_security_group.default.id]
+  vpc_security_group_ids      = aws_security_group.default.id
   key_name                    = locals.deployer_key
   associate_public_ip_address = true
 

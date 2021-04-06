@@ -5,18 +5,24 @@
 
 resource "sematext_monitor_nodejs" "public" {
   apptoken {
-    names = locals.environments
+    names = locals.apptoken_names
   }
 }
 
 resource "sematext_monitor_nodejs" "frontend" {
   apptoken {
-    names = locals.environments
+    names = locals.apptoken_names
   }
 }
 
 resource "sematext_monitor_mongodb" "backend" {
   apptoken {
-    names = locals.environments
+    names = locals.apptoken_names
+  }
+}
+
+resource "sematext_monitor_infra" "infra" {
+  apptoken {
+    names = locals.apptoken_names
   }
 }
