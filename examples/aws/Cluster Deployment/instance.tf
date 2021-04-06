@@ -1,5 +1,5 @@
 
-data "aws_ami" "amazon-linux-2" {
+data "aws_ami" "amazon_linux_2" {
   most_recent = true
   owners      = ["amazon"]
   filter {
@@ -14,19 +14,17 @@ data "aws_ami" "amazon-linux-2" {
 
 # TODO setup AWS key for ssh
 
-resource "aws_instance" "microservice" {
+resource "aws_instance" "ec2" {
 
-  for_each = toset(local.instances)
+  count = length(local.instances)
 
-  name              = each.value.name
-  availability_zone = each.value.availability_zone
-  user_data         = each.value.install_script
-  instance_type     = each.value.instance_type
+  tags = {
+    Name = local.instances[count.index].name
+  }
 
-  ami                         = data.aws_ami.amazon-linux-2.id
-  subnet_id                   = aws_subnet.subnet.id
-  vpc_security_group_ids      = aws_security_group.default.id
-  key_name                    = locals.deployer_key
+  user_data                   = local.instances[count.index].install_script
+  instance_type               = local.instances[count.index].instance_type
+  ami                         = data.aws_ami.amazon_linux_2.id
   associate_public_ip_address = true
 
 }

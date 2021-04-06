@@ -1,28 +1,27 @@
 
-# This example demonstrates multiple components logging to the same Sematect Cloud Apps
-# Apptokens can either be manually generated and transferred from Sematext Cloud or they can be left blank to be created during creation process.
+resource "sematext_monitor_nodejs" "instance" {
 
-
-resource "sematext_monitor_nodejs" "public" {
+  name            = "example"
+  billing_plan_id = 109
   apptoken {
-    names = locals.apptoken_names
+    names = local.apptoken_names
   }
 }
 
-resource "sematext_monitor_nodejs" "frontend" {
+resource "sematext_monitor_mongodb" "instance" {
+
+  name            = "example"
+  billing_plan_id = 125
   apptoken {
-    names = locals.apptoken_names
+    names = local.apptoken_names
   }
 }
 
-resource "sematext_monitor_mongodb" "backend" {
-  apptoken {
-    names = locals.apptoken_names
-  }
-}
+resource "sematext_monitor_infra" "instance" {
 
-resource "sematext_monitor_infra" "infra" {
+  name            = "example"
+  billing_plan_id = 129
   apptoken {
-    names = locals.apptoken_names
+    names = local.apptoken_names
   }
 }

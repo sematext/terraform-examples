@@ -17,7 +17,7 @@ terraform {
 
     sematext = {
       source  = "sematext/sematext"
-      version = ">= 1.4.0"
+      version = ">= 0.4.0"
     }
 
   }
@@ -26,7 +26,7 @@ terraform {
 
 provider "aws" {
   profile = "default"
-  region  = "us-west-1"
+  region  = "us-east-1"
 }
 
 

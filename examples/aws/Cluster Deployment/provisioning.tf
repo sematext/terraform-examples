@@ -1,25 +1,39 @@
 
 resource "null_resource" "provisioner" {
 
-  for_each = locals.instances
-
-  instance = each.value
+  count = length(local.instances)
 
   triggers = {
-    app_token_id     = resource[instance.monitoring.app.name].sc_apptoken_entries[instance.environment]
-    monitor_token_id = resource[instance.monitoring.infra.name].sc_apptoken_entries[instance.environment]
+
+    app_token_id = local.instances[count.index].monitoring.app.name == "sematext_monitor_nodejs" ? (
+
+      sematext_monitor_nodejs.instance.sc_apptoken_entries[local.instances[count.index].environment]
+      ) : (
+      sematext_monitor_mongodb.instance.sc_apptoken_entries[local.instances[count.index].environment]
+    )
+
+
+    infra_token_id = sematext_monitor_infra.instance.sc_apptoken_entries[local.instances[count.index].environment]
+
+
   }
 
   connection {
-    host = resource.aws_instance[instance.name].public_ip
+    host = aws_instance.ec2[count.index].public_ip
   }
 
   provisioner "remote-exec" {
     inline = [
-      replace(instance.monitoring.app.settings, "<app_token_id>", app_token_id),
-      replace(instance.monitoring.infra.settings, "<infra_token_id>", infra_token_id)
-      // TODO restart or reload services
+      replace(local.instances[count.index].monitoring.app.settings, "<app_token_id>", self.triggers.app_token_id),
+      replace(local.instances[count.index].monitoring.infra.settings, "<infra_token_id>", self.triggers.infra_token_id)
+      // @TODO restart or reload services
     ]
   }
+
+  depends_on = [
+    sematext_monitor_nodejs.instance,
+    sematext_monitor_mongodb.instance,
+    sematext_monitor_infra.instance
+  ]
 
 }
