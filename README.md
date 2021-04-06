@@ -264,9 +264,3 @@ $ terraform apply
 * Terraform Website: https://www.terraform.io
 * Mailing list: [Google Groups](http://groups.google.com/group/terraform-tool)
 * [![Gitter chat](https://badges.gitter.im/hashicorp-terraform/Lobby.svg)](https://gitter.im/hashicorp-terraform/Lobby)
-
-
-<hr>
-
-<img src="./assets/sematext-featured-image@2x.jpg">
-
